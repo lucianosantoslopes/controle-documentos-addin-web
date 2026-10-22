@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:type="TaskPaneApp">
+  <Id>9d7df5d5-8c9d-4d45-8f1d-2b8f7fd4c111</Id>
+  <Version>1.0.0.2</Version>
+  <ProviderName>Luciano Santos Lopes</ProviderName>
+  <DefaultLocale>pt-BR</DefaultLocale>
+  <DisplayName DefaultValue="Controle de Documentos" />
+  <Description DefaultValue="Automação da importação e atualização do controle documental no Excel." />
+  <IconUrl DefaultValue="https://lucianosantoslopes.github.io/controle-documentos-addin-web/assets/icon-32.png" />
+  <SupportUrl DefaultValue="https://lucianosantoslopes.github.io/controle-documentos-addin-web/" />
+  <AppDomains>
+    <AppDomain>https://lucianosantoslopes.github.io/controle-documentos-addin-web</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="ExcelApi" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://lucianosantoslopes.github.io/controle-documentos-addin-web/taskpane.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+</OfficeApp>
