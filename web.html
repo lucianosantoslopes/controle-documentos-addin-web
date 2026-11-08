@@ -1,0 +1,71 @@
+<!doctype html><html lang=pt-BR><head><meta charset=UTF-8><title>Controle de Documentos</title><link rel=stylesheet href=web.css></head><body>
+    <div class=container>
+
+        <div class=card>
+
+            <h1>Controle de Documentos</h1>
+
+            <div class=subtitle>
+                Importe uma planilha XLSX e uma MR em PDF para atualizar os documentos automaticamente.
+            </div>
+
+            <div class=section>
+                <label for=xlsxFile>
+                    Planilha Excel
+                </label>
+
+                <input type=file id=xlsxFile accept=.xlsx>
+
+                <div id=xlsxInfo class=file-card>
+                    Nenhuma planilha selecionada.
+                </div>
+            </div>
+
+            <div class=section>
+                <label for=pdfFile>
+                    MR em PDF
+                </label>
+
+                <input type=file id=pdfFile accept=.pdf multiple>
+
+                <div id=pdfInfo class=file-card>
+                    Nenhum PDF selecionado.
+                </div>
+            </div>
+
+            <div class=actions>
+                <button id=validateBtn>
+                    Validar
+                </button>
+
+                <button id=exportBtn>
+                    Processar e Baixar XLSX
+                </button>
+            </div>
+
+            <div class=result-card>
+                <div class=result-title>
+                    Resultado do processamento
+                </div>
+
+                <pre id=output></pre>
+            </div>
+
+            <div class=section>
+                <div class=subtitle>
+                    Auditoria local de segurança: os eventos ficam armazenados neste navegador e neste dispositivo.
+                    A aplicação não identifica o usuário.
+                </div>
+                <button id=auditExportBtn type=button>
+                    Exportar registros de segurança (JSON)
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src=web.js></script>
+
+
+</body></html>
