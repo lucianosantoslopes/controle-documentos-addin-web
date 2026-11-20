@@ -1,70 +1,58 @@
-<!doctype html><html lang=pt-BR><head><meta charset=UTF-8><title>Controle de Documentos</title><link rel=stylesheet href=web.css></head><body>
-    <div class=container>
-
-        <div class=card>
-
+<!doctype html><html lang=pt-BR><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Controle de Documentos</title><link rel=stylesheet href=web.css></head><body>
+    <main class=container>
+        <header class=page-header>
             <h1>Controle de Documentos</h1>
+            <p>Selecione uma planilha Excel e importe MRs em PDF, notificações da GPR ou ambos.</p>
+        </header>
 
-            <div class=subtitle>
-                Importe uma planilha XLSX e uma MR em PDF para atualizar os documentos automaticamente.
-            </div>
-
-            <div class=section>
-                <label for=xlsxFile>
-                    Planilha Excel
-                </label>
-
-                <input type=file id=xlsxFile accept=.xlsx>
-
-                <div id=xlsxInfo class=file-card>
-                    Nenhuma planilha selecionada.
+        <section class=panel aria-labelledby=filesHeading>
+            <h2 id=filesHeading>Arquivos para processar</h2>
+            <div class=file-grid>
+                <div class=file-section>
+                    <label for=xlsxFile>Planilha Excel <span>.xlsx</span></label>
+                    <input type=file id=xlsxFile accept=.xlsx aria-describedby=xlsxInfo>
+                    <div id=xlsxInfo class=file-card role=status>Nenhuma planilha selecionada.</div>
                 </div>
-            </div>
-
-            <div class=section>
-                <label for=pdfFile>
-                    MR em PDF
-                </label>
-
-                <input type=file id=pdfFile accept=.pdf multiple>
-
-                <div id=pdfInfo class=file-card>
-                    Nenhum PDF selecionado.
+                <div class=file-section>
+                    <label for=pdfFile>MRs da Projetista e da Gerenciadora <span>.pdf</span></label>
+                    <input type=file id=pdfFile accept=.pdf multiple aria-describedby=pdfInfo>
+                    <div id=pdfInfo class=file-card role=status>Nenhum PDF selecionado.</div>
+                </div>
+                <div class=file-section>
+                    <label for=gprFile>Notificações de análise da GPR <span>.msg</span></label>
+                    <input type=file id=gprFile accept=.msg multiple aria-describedby=gprInfo>
+                    <div id=gprInfo class=file-card role=status>Nenhuma notificação GPR selecionada.</div>
                 </div>
             </div>
 
             <div class=actions>
-                <button id=validateBtn>
-                    Validar
-                </button>
-
-                <button id=exportBtn>
-                    Processar e Baixar XLSX
-                </button>
+                <button id=validateBtn type=button>Validar arquivos</button>
+                <button id=exportBtn type=button>Processar e baixar XLSX</button>
             </div>
+        </section>
 
-            <div class=result-card>
-                <div class=result-title>
-                    Resultado do processamento
-                </div>
-
-                <pre id=output></pre>
+        <section class="panel result-card" aria-labelledby=resultHeading>
+            <h2 id=resultHeading>Resultado do processamento</h2>
+            <p id=processStatus role=status>Aguardando arquivos.</p>
+            <progress id=processProgress aria-label="Progresso da operação" hidden></progress>
+            <dl id=processSummary class=process-summary hidden></dl>
+            <div id=pendingReport class=pending-report hidden>
+                <table>
+                    <caption>Pendências</caption>
+                    <thead><tr><th scope=col>Arquivo<th scope=col>Código<th scope=col>Revisão<th scope=col>Motivo</thead>
+                    <tbody id=pendingRows></tbody>
+                </table>
             </div>
+            <pre id=output role=status></pre>
+        </section>
 
-            <div class=section>
-                <div class=subtitle>
-                    Auditoria local de segurança: os eventos ficam armazenados neste navegador e neste dispositivo.
-                    A aplicação não identifica o usuário.
-                </div>
-                <button id=auditExportBtn type=button>
-                    Exportar registros de segurança (JSON)
-                </button>
-            </div>
-
-        </div>
-
-    </div>
-
+        <details class=audit>
+            <summary>Auditoria de segurança</summary>
+            <p>Os eventos ficam armazenados neste navegador e neste dispositivo. A aplicação não identifica o usuário.</p>
+            <button id=auditExportBtn type=button>Exportar registros de segurança (JSON)</button>
+        </details>
+    </main>
+    <script src=runtime.js></script>
     <script src=web.js></script>
 
 
