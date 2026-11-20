@@ -41,6 +41,16 @@
             <p id=processStatus role=status>Aguardando arquivos.</p>
             <progress id=processProgress aria-label="Progresso da operação" hidden></progress>
             <dl id=processSummary class=process-summary hidden></dl>
+            <section id=analysisConflictReport class=analysis-conflict-report aria-labelledby=analysisConflictHeading hidden>
+                <h3 id=analysisConflictHeading>Análises da GPR e da Gerenciadora para a mesma revisão</h3>
+                <p id=analysisConflictStatus role=status></p>
+                <div class=pending-report>
+                    <table aria-labelledby=analysisConflictHeading>
+                        <thead><tr><th scope=col>Código<th scope=col>Revisão<th scope=col>Notificação da GPR<th scope=col>Resultado da GPR<th scope=col>MR da Gerenciadora<th scope=col>Status RV preservado</thead>
+                        <tbody id=analysisConflictRows></tbody>
+                    </table>
+                </div>
+            </section>
             <div id=pendingReport class=pending-report hidden>
                 <table>
                     <caption>Pendências</caption>
